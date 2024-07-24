@@ -98,6 +98,14 @@
             {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": fillColor, "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3, "className": "blinking"}
         ).addTo(map_7892dec93fd94f2abe96ddc001669b77);
 
+        if (fillColor === 'green') {
+            rectangle.on('click', function() {
+                var boundsStr = JSON.stringify(bounds);
+                localStorage.setItem('selectedBounds', boundsStr);
+                window.location.href = 'price.html';
+            });
+        }
+
         rectangles.push(rectangle);
     }
 
@@ -125,7 +133,7 @@
         markers.push(marker);
     }
 
-    addRectangle([[19.085441285714285, 72.824376], [19.037646714285714, 72.854118]], "green");
+    addRectangle([[19.085441285714285, 72.824376], [19.037646714285714,72.88386]], "green");
     addRectangle([[19.228825, 72.824376], [19.18103042857143, 72.854118]], "red");
     addRectangle([[18.989852142857142, 72.824376], [18.94205757142857, 72.854118]], "green");
 
@@ -146,6 +154,6 @@
         });
     }
 
-    setInterval(toggleRectangleColors, 2000); // Change color every 2 seconds to sync with animation
+    // setInterval(toggleRectangleColors, 2000);  Change color every 2 seconds to sync with animation
 </script>
 </html>
